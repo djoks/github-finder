@@ -1,30 +1,37 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/config/router/route_parser.dart';
-import 'package:github_finder/config/router/router_delegate.dart';
-import 'package:github_finder/enums/route.dart';
-import 'package:github_finder/providers/page_provider.dart';
 import 'package:github_finder/widgets/app_icon.dart';
-import 'package:provider/provider.dart';
+import 'package:github_finder/widgets/custom_app_bar.dart';
 
 class BottomTabView extends StatelessWidget {
-  final AppRoute currentRoute;
-  final ValueChanged<AppRoute> onTabTapped;
+  final String title;
+  final Widget body;
+  final Widget? customAction;
+  final ValueNotifier<int> currentIndexNotifier = ValueNotifier<int>(0);
 
-  const BottomTabView(
-      {super.key, required this.currentRoute, required this.onTabTapped});
+  BottomTabView({
+    super.key,
+    required this.title,
+    required this.body,
+    this.customAction,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Router(
-        routeInformationParser: AppRouteInformationParser(),
-        routerDelegate:
-            AppRouterDelegate(notifier: Provider.of<PageProvider>(context)),
+      resizeToAvoidBottomInset: false,
+      appBar: CustomAppBar(
+        title: title,
+        customAction: customAction,
+        isHome: true,
       ),
-      bottomNavigationBar: (currentRoute == AppRoute.home ||
-              currentRoute == AppRoute.analytics ||
-              currentRoute == AppRoute.settings)
-          ? Container(
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
+        child: body,
+      ),
+      bottomNavigationBar: ValueListenableBuilder<int>(
+          valueListenable: currentIndexNotifier,
+          builder: (context, currentIndex, _) {
+            return Container(
               height: 110,
               decoration: BoxDecoration(
                 borderRadius: const BorderRadius.only(
@@ -45,14 +52,16 @@ class BottomTabView extends StatelessWidget {
                   topRight: Radius.circular(35),
                 ),
                 child: BottomNavigationBar(
-                  currentIndex: AppRoute.values.indexOf(currentRoute),
-                  onTap: (index) => onTabTapped(AppRoute.values[index]),
+                  currentIndex: currentIndex,
+                  onTap: (index) {
+                    currentIndexNotifier.value = index;
+                  },
                   items: [
                     BottomNavigationBarItem(
                       icon: AppIcon(
                         'assets/images/home.png',
                         size: 24,
-                        active: currentRoute == AppRoute.home,
+                        active: currentIndex == 0,
                       ),
                       label: 'Home',
                     ),
@@ -60,7 +69,7 @@ class BottomTabView extends StatelessWidget {
                       icon: AppIcon(
                         'assets/images/analytics.png',
                         size: 24,
-                        active: currentRoute == AppRoute.analytics,
+                        active: currentIndex == 1,
                       ),
                       label: 'Analytics',
                     ),
@@ -68,15 +77,15 @@ class BottomTabView extends StatelessWidget {
                       icon: AppIcon(
                         'assets/images/settings.png',
                         size: 24,
-                        active: currentRoute == AppRoute.settings,
+                        active: currentIndex == 2,
                       ),
                       label: 'Settings',
                     ),
                   ],
                 ),
               ),
-            )
-          : null,
+            );
+          }),
     );
   }
 }

@@ -1,36 +1,28 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/enums/route.dart';
-import 'package:github_finder/providers/page_provider.dart';
 import 'package:github_finder/widgets/app_icon.dart';
-import 'package:provider/provider.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;
   final Widget? customAction;
+  final bool? isHome;
 
-  const CustomAppBar({super.key, this.title, this.customAction});
+  const CustomAppBar({super.key, this.title, this.customAction, this.isHome});
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
 
   @override
   Widget build(BuildContext context) {
-    final pageProvider = Provider.of<PageProvider>(context);
-    final currentRoute = pageProvider.pageName;
-    final isFirstPage = (currentRoute == AppRoute.home ||
-        currentRoute == AppRoute.analytics ||
-        currentRoute == AppRoute.settings);
-
     return AppBar(
       title: Container(
           margin: const EdgeInsets.only(left: 8),
-          child: isFirstPage ? Text(title ?? 'Home') : null),
+          child: isHome == true ? Text(title ?? 'Home') : null),
       centerTitle: false,
-      leading: isFirstPage
+      leading: isHome == true
           ? null
           : InkWell(
               onTap: () {
-                pageProvider.goBack();
+                Navigator.pop(context);
               },
               child: Container(
                 margin: const EdgeInsets.only(left: 16.0),
@@ -42,8 +34,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           margin: const EdgeInsets.only(right: 8),
           child: Row(children: [
             if (customAction != null)
-              customAction!
-            else if (isFirstPage)
+              Container(
+                  margin: const EdgeInsets.only(right: 15),
+                  child: customAction!)
+            else if (isHome == true)
               IconButton(
                 icon:
                     const AppIcon('assets/images/notifications.png', size: 24),
