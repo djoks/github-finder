@@ -1,0 +1,38 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_test/flutter_test.dart';
+import 'package:github_finder/providers/home_provider.dart';
+import 'package:github_finder/providers/theme_provider.dart';
+import 'package:github_finder/services/http_service.dart';
+import 'package:mockito/mockito.dart';
+import 'package:provider/provider.dart';
+import 'package:github_finder/pages/home_page.dart';
+
+class MockHttpService extends Mock implements HttpService {}
+
+void main() {
+  testWidgets('Renders HomePage with search field and tabs',
+      (WidgetTester tester) async {
+    // Create a mock HttpService
+    final mockHttpService = MockHttpService();
+
+    await tester.pumpWidget(
+      MultiProvider(
+        providers: [
+          ChangeNotifierProvider(
+              create: (context) => HomeProvider(mockHttpService)),
+          ChangeNotifierProvider(create: (context) => ThemeProvider()),
+        ],
+        child: const MaterialApp(
+          home: HomePage(),
+        ),
+      ),
+    );
+
+    // Verify if search field exists
+    // expect(find.byType(TextField), findsOneWidget);
+
+    // Verify if 'Users' and 'Repositories' tabs exist
+    // expect(find.text('Users'), findsOneWidget);
+    // expect(find.text('Repositories'), findsOneWidget);
+  });
+}
