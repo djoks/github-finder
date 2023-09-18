@@ -30,6 +30,7 @@ class UserPageState extends State<UserPage> {
   Widget build(BuildContext context) {
     return AppPageView(
       body: Column(
+        mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _buildProfileImage(),

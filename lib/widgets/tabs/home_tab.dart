@@ -3,18 +3,19 @@ import 'package:github_finder/pages/settings_page.dart';
 import 'package:github_finder/providers/home_provider.dart';
 import 'package:github_finder/widgets/app_icon.dart';
 import 'package:github_finder/widgets/layouts/bottom_tab_view.dart';
+import 'package:github_finder/widgets/layouts/page_view.dart';
 import 'package:github_finder/widgets/repository_list.dart';
 import 'package:github_finder/widgets/user_list.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeTab extends StatefulWidget {
+  const HomeTab({Key? key}) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  HomeTabState createState() => HomeTabState();
 }
 
-class HomePageState extends State<HomePage> {
+class HomeTabState extends State<HomeTab> {
   late final HomeProvider homeProvider;
 
   @override
@@ -25,7 +26,7 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomTabView(
+    return AppPageView(
       title: 'Home',
       body: Column(
         mainAxisSize: MainAxisSize.max,

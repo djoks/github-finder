@@ -21,50 +21,47 @@ class SettingsPageState extends State<SettingsPage> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomTabView(
-      title: 'Settings',
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          Card(
-            margin: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                RadioListTile(
-                  title: const Text('Light Mode'),
-                  value: ThemeMode.light,
-                  groupValue: themeProvider.themeMode,
-                  onChanged: (ThemeMode? value) {
-                    setState(() {
-                      themeProvider.themeMode = value!;
-                    });
-                  },
-                ),
-                RadioListTile(
-                  title: const Text('Dark Mode'),
-                  value: ThemeMode.dark,
-                  groupValue: themeProvider.themeMode,
-                  onChanged: (ThemeMode? value) {
-                    setState(() {
-                      themeProvider.themeMode = value!;
-                    });
-                  },
-                ),
-                RadioListTile(
-                  title: const Text('System Default'),
-                  value: ThemeMode.system,
-                  groupValue: themeProvider.themeMode,
-                  onChanged: (ThemeMode? value) {
-                    setState(() {
-                      themeProvider.themeMode = value!;
-                    });
-                  },
-                ),
-              ],
-            ),
+    return Column(
+      mainAxisSize: MainAxisSize.max,
+      children: [
+        Card(
+          margin: const EdgeInsets.all(8.0),
+          child: Column(
+            children: [
+              RadioListTile(
+                title: const Text('Light Mode'),
+                value: ThemeMode.light,
+                groupValue: themeProvider.themeMode,
+                onChanged: (ThemeMode? value) {
+                  setState(() {
+                    themeProvider.themeMode = value!;
+                  });
+                },
+              ),
+              RadioListTile(
+                title: const Text('Dark Mode'),
+                value: ThemeMode.dark,
+                groupValue: themeProvider.themeMode,
+                onChanged: (ThemeMode? value) {
+                  setState(() {
+                    themeProvider.themeMode = value!;
+                  });
+                },
+              ),
+              RadioListTile(
+                title: const Text('System Default'),
+                value: ThemeMode.system,
+                groupValue: themeProvider.themeMode,
+                onChanged: (ThemeMode? value) {
+                  setState(() {
+                    themeProvider.themeMode = value!;
+                  });
+                },
+              ),
+            ],
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }

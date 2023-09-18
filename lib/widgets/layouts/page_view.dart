@@ -12,7 +12,6 @@ class AppPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar:
           CustomAppBar(title: title, customAction: customAction, isHome: false),
       body: Padding(

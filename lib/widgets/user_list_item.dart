@@ -4,6 +4,7 @@ import 'package:github_finder/models/language.dart';
 import 'package:github_finder/models/repository.dart';
 import 'package:github_finder/models/user.dart';
 import 'package:github_finder/models/user_details.dart';
+import 'package:github_finder/pages/user_page.dart';
 import 'package:github_finder/providers/home_provider.dart';
 import 'package:github_finder/providers/repository_provider.dart';
 import 'package:github_finder/widgets/ellipsis.dart';
@@ -45,8 +46,14 @@ class UserListItemState extends State<UserListItem> {
 
   Widget _buildUserCard(UserDetails userDetails) {
     return InkWell(
-      onTap: () =>
-          Navigator.pushNamed(context, '/user', arguments: userDetails),
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => UserPage(userDetails: userDetails),
+          ),
+        );
+      },
       child: Card(
         elevation: 1,
         shape: RoundedRectangleBorder(
