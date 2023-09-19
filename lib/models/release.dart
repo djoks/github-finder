@@ -1,23 +1,23 @@
 class Release {
-  final String url;
-  final String assetsUrl;
-  final String uploadUrl;
-  final String htmlUrl;
-  final int id;
-  final String nodeId;
-  final String tagName;
-  final String targetCommitish;
-  final String name;
-  final bool draft;
-  final bool prerelease;
-  final String createdAt;
-  final String publishedAt;
-  final List<dynamic> assets;
-  final String tarballUrl;
-  final String zipballUrl;
-  final String body;
-  final Map<String, dynamic> author;
-  final Map<String, dynamic> reactions;
+  final String? url;
+  final String? assetsUrl;
+  final String? uploadUrl;
+  final String? htmlUrl;
+  final int? id;
+  final String? nodeId;
+  final String? tagName;
+  final String? targetCommitish;
+  final String? name;
+  final bool? draft;
+  final bool? prerelease;
+  final String? createdAt;
+  final String? publishedAt;
+  final List<dynamic>? assets;
+  final String? tarballUrl;
+  final String? zipballUrl;
+  final String? body;
+  final Map<String, dynamic>? author;
+  final Map<String, dynamic>? reactions;
 
   Release({
     this.url = '',

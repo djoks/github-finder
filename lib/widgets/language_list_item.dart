@@ -11,23 +11,25 @@ class LanguageListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String languageText = language.language ?? 'Unknown';
+    double? percentage = language.percentage;
+    String? color = language.color;
+
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
-        color: language.color != null
-            ? hexToColor(language.color!).withOpacity(0.2)
+        color: color != null
+            ? hexToColor(color).withOpacity(0.2)
             : Colors.grey.withOpacity(0.2),
         borderRadius: BorderRadius.circular(15),
       ),
       child: Center(
         child: Text(
-          showPercentage == true
-              ? '${language.language} ${language.percentage}%'
-              : language.language,
+          showPercentage == true && percentage != null
+              ? '$languageText ${percentage.toStringAsFixed(2)}%'
+              : languageText,
           style: TextStyle(
-            color: language.color != null
-                ? hexToColor(language.color!)
-                : Colors.grey,
+            color: color != null ? hexToColor(color) : Colors.grey,
           ),
         ),
       ),

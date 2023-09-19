@@ -4,10 +4,12 @@ import 'package:github_finder/models/language.dart';
 import 'package:github_finder/models/repository.dart';
 import 'package:github_finder/models/user.dart';
 import 'package:github_finder/models/user_details.dart';
+import 'package:github_finder/pages/user_page.dart';
 import 'package:github_finder/providers/home_provider.dart';
 import 'package:github_finder/providers/repository_provider.dart';
 import 'package:github_finder/widgets/ellipsis.dart';
 import 'package:github_finder/widgets/language_list.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
 
 class UserListItem extends StatefulWidget {
@@ -33,8 +35,12 @@ class UserListItemState extends State<UserListItem> {
 
   @override
   Widget build(BuildContext context) {
+    String? userLogin = widget.user.login;
+
+    String displayLogin = userLogin ?? 'Unknown';
+
     return FutureBuilder<UserDetails>(
-      future: homeProvider.fetchUserDetails(widget.user.login),
+      future: homeProvider.fetchUserDetails(displayLogin),
       builder: (context, snapshot) {
         if (snapshot.hasError) return const Text('');
         if (!snapshot.hasData) return const Text('');
@@ -45,8 +51,13 @@ class UserListItemState extends State<UserListItem> {
 
   Widget _buildUserCard(UserDetails userDetails) {
     return InkWell(
-      onTap: () =>
-          Navigator.pushNamed(context, '/user', arguments: userDetails),
+      onTap: () {
+        pushNewScreen(
+          context,
+          screen: UserPage(userDetails: userDetails),
+          withNavBar: false,
+        );
+      },
       child: Card(
         elevation: 1,
         shape: RoundedRectangleBorder(
@@ -93,8 +104,12 @@ class UserListItemState extends State<UserListItem> {
   }
 
   Widget _buildLanguagesFuture() {
+    String? userLogin = widget.user.login;
+
+    String displayLogin = userLogin ?? 'Unknown';
+
     return FutureBuilder<Repository?>(
-      future: homeProvider.fetchUserRecentRepository(widget.user.login),
+      future: homeProvider.fetchUserRecentRepository(displayLogin),
       builder: (context, snapshot) {
         if (snapshot.hasError) return const Text('');
         if (!snapshot.hasData) return const Text('No languages available');
@@ -104,10 +119,14 @@ class UserListItemState extends State<UserListItem> {
   }
 
   Widget _buildLanguagesList(Repository repository) {
+    String? repoName = repository.name;
+
+    String displayRepoName = repoName ?? 'Unknown';
+
     return FutureBuilder<List<Language>>(
       future: repositoryProvider.fetchLanguages(
-        owner: widget.user.login,
-        repository: repository.name,
+        owner: widget.user.login ?? '',
+        repository: displayRepoName,
         defaultColor: '#2EA4CA',
       ),
       builder: (context, snapshot) {

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:github_finder/models/language.dart';
 import 'package:github_finder/models/repository.dart';
+import 'package:github_finder/pages/repository_page.dart';
 import 'package:github_finder/providers/user_provider.dart';
 import 'package:github_finder/utils/format_date.dart';
 import 'package:github_finder/widgets/app_icon.dart';
 import 'package:github_finder/widgets/ellipsis.dart';
 import 'package:github_finder/widgets/language_list.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
 
 class RepositoryListItem extends StatefulWidget {
@@ -29,9 +31,22 @@ class RepositoryListItemState extends State<RepositoryListItem> {
 
   @override
   Widget build(BuildContext context) {
+    String? repoName = widget.repository.name;
+    String? updatedAt = widget.repository.updatedAt;
+
+    String displayName = repoName ?? 'Not available';
+    String displayDate = updatedAt != null
+        ? formatDate(updatedAt, "MM/dd/yyyy")
+        : 'Unknown date';
+
     return InkWell(
-      onTap: () => Navigator.pushNamed(context, '/repository',
-          arguments: widget.repository),
+      onTap: () {
+        pushNewScreen(
+          context,
+          screen: RepositoryPage(repository: widget.repository),
+          withNavBar: false,
+        );
+      },
       child: Card(
         elevation: 1,
         shape: RoundedRectangleBorder(
@@ -42,7 +57,7 @@ class RepositoryListItemState extends State<RepositoryListItem> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              _buildRepositoryHeader(),
+              _buildRepositoryHeader(displayName),
               const SizedBox(height: 5),
               Ellipsis(
                   text: widget.repository.description ??
@@ -50,8 +65,7 @@ class RepositoryListItemState extends State<RepositoryListItem> {
               const SizedBox(height: 5),
               _buildLanguagesFuture(),
               const SizedBox(height: 10),
-              Text(
-                  'Updated: ${formatDate(widget.repository.updatedAt!, "MM/dd/yyyy")}'),
+              Text('Updated: $displayDate'),
             ],
           ),
         ),
@@ -59,11 +73,11 @@ class RepositoryListItemState extends State<RepositoryListItem> {
     );
   }
 
-  Widget _buildRepositoryHeader() {
+  Widget _buildRepositoryHeader(String displayName) {
     return Row(
       children: [
         Text(
-          widget.repository.name,
+          displayName,
           style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         const Spacer(),
@@ -78,7 +92,7 @@ class RepositoryListItemState extends State<RepositoryListItem> {
     return FutureBuilder<List<Language>>(
       future: userProvider.fetchRepoLanguages(
         owner: widget.repository.owner?.login ?? '',
-        repository: widget.repository.name,
+        repository: widget.repository.name ?? '',
         defaultColor: '#22A87B',
       ),
       builder: (context, snapshot) {

@@ -15,6 +15,7 @@ void main() {
       (WidgetTester tester) async {
     // Create a mock HttpService
     final mockHttpService = MockHttpService();
+    // Create a mock RepositoryProvider
     final repositoryProvider = RepositoryProvider(mockHttpService);
 
     // Create a fake Repository object
@@ -47,7 +48,7 @@ void main() {
     expect(find.byType(RepositoryPage), findsOneWidget);
 
     // Verify if the header row is present
-    expect(find.byType(Row), findsOneWidget);
+    expect(find.byKey(const Key('HeaderRow')), findsOneWidget);
 
     // Verify if the TabBar is present
     expect(find.byType(TabBar), findsOneWidget);

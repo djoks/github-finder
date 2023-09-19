@@ -16,7 +16,12 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     return AppBar(
       title: Container(
           margin: const EdgeInsets.only(left: 8),
-          child: isHome == true ? Text(title ?? 'Home') : null),
+          child: isHome == true
+              ? Text(
+                  title ?? 'Home',
+                  style: Theme.of(context).textTheme.titleLarge,
+                )
+              : null),
       centerTitle: false,
       leading: isHome == true
           ? null

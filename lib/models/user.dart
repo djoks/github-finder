@@ -1,6 +1,6 @@
 class User {
-  final int id;
-  final String login;
+  final int? id;
+  final String? login;
   final String? avatarUrl;
   final String? url;
   final String? htmlUrl;
@@ -18,8 +18,8 @@ class User {
   final double? score;
 
   User({
-    required this.id,
-    required this.login,
+    this.id,
+    this.login,
     this.avatarUrl,
     this.url,
     this.htmlUrl,

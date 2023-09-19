@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:github_finder/providers/home_provider.dart';
+import 'package:github_finder/utils/is_dark_mode.dart';
 import 'package:github_finder/widgets/app_icon.dart';
-import 'package:github_finder/widgets/layouts/bottom_tab_view.dart';
+import 'package:github_finder/widgets/page_view.dart';
 import 'package:github_finder/widgets/repository_list.dart';
 import 'package:github_finder/widgets/user_list.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+class HomeTab extends StatefulWidget {
+  const HomeTab({Key? key}) : super(key: key);
 
   @override
-  HomePageState createState() => HomePageState();
+  HomeTabState createState() => HomeTabState();
 }
 
-class HomePageState extends State<HomePage> {
+class HomeTabState extends State<HomeTab> {
   late final HomeProvider homeProvider;
 
   @override
@@ -24,16 +25,16 @@ class HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return BottomTabView(
-      title: 'Home',
-      body: Column(
-        mainAxisSize: MainAxisSize.max,
-        children: [
-          _buildSearchField(),
-          _buildTabView(),
-        ],
-      ),
-    );
+    return AppPageView(
+        title: 'Home',
+        body: Column(
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            _buildSearchField(),
+            Expanded(child: _buildTabView()),
+          ],
+        ),
+        isHome: true);
   }
 
   Widget _buildSearchField() {
@@ -57,36 +58,39 @@ class HomePageState extends State<HomePage> {
   }
 
   Widget _buildTabView() {
-    return Expanded(
-      child: DefaultTabController(
-        length: 2,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: const EdgeInsets.only(top: 15),
-              child: TabBar(
-                indicatorColor: Theme.of(context).primaryColor,
-                labelStyle:
-                    const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                unselectedLabelStyle:
-                    const TextStyle(fontWeight: FontWeight.normal),
-                isScrollable: true,
-                tabs: const [
-                  Tab(text: 'Users'),
-                  Tab(text: 'Repositories'),
-                ],
-              ),
+    return DefaultTabController(
+      length: 2,
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: const EdgeInsets.only(top: 15),
+            child: TabBar(
+              indicatorColor: isDarkMode(context)
+                  ? Colors.white
+                  : Theme.of(context).primaryColor,
+              labelStyle:
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              unselectedLabelStyle:
+                  const TextStyle(fontWeight: FontWeight.normal),
+              isScrollable: true,
+              tabs: const [
+                Tab(text: 'Users'),
+                Tab(text: 'Repositories'),
+              ],
             ),
-            Consumer<HomeProvider>(
+          ),
+          Expanded(
+            child: Consumer<HomeProvider>(
               builder: (context, provider, child) {
                 return homeProvider.currentQuery.isEmpty
                     ? _buildEmptySearchView()
                     : _buildTabBarView();
               },
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
@@ -98,11 +102,12 @@ class HomePageState extends State<HomePage> {
         Text('What are you looking for?',
             style: Theme.of(context).textTheme.bodyLarge),
         Container(
+          height: 250,
           width: double.infinity,
           padding: const EdgeInsets.symmetric(vertical: 25),
-          margin: const EdgeInsets.symmetric(vertical: 25, horizontal: 50),
+          margin: const EdgeInsets.symmetric(vertical: 25, horizontal: 25),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isDarkMode(context) ? const Color(0xFF282828) : Colors.white,
             borderRadius: BorderRadius.circular(15),
           ),
           child: const AppIcon('assets/images/no-search-query.png', size: 250),
@@ -122,7 +127,7 @@ class HomePageState extends State<HomePage> {
           padding: const EdgeInsets.symmetric(vertical: 25),
           margin: const EdgeInsets.symmetric(vertical: 25, horizontal: 50),
           decoration: BoxDecoration(
-            color: Colors.white,
+            color: isDarkMode(context) ? const Color(0xFF282828) : Colors.white,
             borderRadius: BorderRadius.circular(15),
           ),
           child: const AppIcon('assets/images/no-results.png', size: 250),
