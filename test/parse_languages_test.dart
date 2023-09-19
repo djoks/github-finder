@@ -1,6 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:github_finder/models/language.dart';
-import 'package:github_finder/utils/get_language_color.dart';
 import 'package:github_finder/utils/parse_languages.dart';
 
 void main() {
