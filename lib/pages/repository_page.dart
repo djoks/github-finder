@@ -6,7 +6,7 @@ import 'package:github_finder/providers/repository_provider.dart';
 import 'package:github_finder/widgets/badge.dart';
 import 'package:github_finder/widgets/language_list.dart';
 import 'package:github_finder/widgets/languages_bar.dart';
-import 'package:github_finder/widgets/layouts/page_view.dart';
+import 'package:github_finder/widgets/page_view.dart';
 import 'package:github_finder/widgets/release_list.dart';
 import 'package:github_finder/widgets/star_count.dart';
 import 'package:provider/provider.dart';
@@ -46,6 +46,7 @@ class RepositoryPageState extends State<RepositoryPage> {
 
   Widget _buildHeaderRow() {
     return Row(
+      key: const Key('HeaderRow'),
       children: [
         Text(
           widget.repository.private! ? 'Private' : 'Public',
@@ -119,7 +120,7 @@ class RepositoryPageState extends State<RepositoryPage> {
     return FutureBuilder(
       future: repositoryProvider.fetchLanguages(
         owner: widget.repository.owner?.login ?? '',
-        repository: widget.repository.name,
+        repository: widget.repository.name ?? '',
         defaultColor: '#22A87B',
       ),
       builder: (context, AsyncSnapshot<List<Language>> snapshot) {
@@ -134,7 +135,7 @@ class RepositoryPageState extends State<RepositoryPage> {
     return FutureBuilder(
       future: repositoryProvider.fetchReleases(
         owner: widget.repository.owner?.login ?? '',
-        repository: widget.repository.name,
+        repository: widget.repository.name ?? '',
       ),
       builder: (context, AsyncSnapshot<List<Release>> snapshot) {
         if (snapshot.hasError) return const Text('');
@@ -148,7 +149,7 @@ class RepositoryPageState extends State<RepositoryPage> {
     return FutureBuilder(
       future: repositoryProvider.fetchLanguages(
         owner: widget.repository.owner?.login ?? '',
-        repository: widget.repository.name,
+        repository: widget.repository.name ?? '',
       ),
       builder: (context, AsyncSnapshot<List<Language>> snapshot) {
         if (snapshot.hasError) return const Text('');
@@ -162,7 +163,7 @@ class RepositoryPageState extends State<RepositoryPage> {
     return FutureBuilder(
       future: repositoryProvider.fetchLanguages(
         owner: widget.repository.owner?.login ?? '',
-        repository: widget.repository.name,
+        repository: widget.repository.name ?? '',
       ),
       builder: (context, AsyncSnapshot<List<Language>> snapshot) {
         if (snapshot.hasError) return const Text('');

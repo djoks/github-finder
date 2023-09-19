@@ -24,11 +24,13 @@ class AppIcon extends StatelessWidget {
       iconColor = isDarkMode ? Colors.white : color;
     }
 
-    return Image.asset(
-      assetPath,
-      width: size,
-      height: size,
-      color: iconColor,
+    return Center(
+      child: Image.asset(
+        assetPath,
+        width: size,
+        height: size,
+        color: iconColor,
+      ),
     );
   }
 }

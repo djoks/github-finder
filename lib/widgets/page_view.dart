@@ -5,15 +5,21 @@ class AppPageView extends StatelessWidget {
   final String? title;
   final Widget body;
   final Widget? customAction;
+  final bool? isHome;
 
   const AppPageView(
-      {super.key, this.title, required this.body, this.customAction});
+      {super.key,
+      this.title,
+      required this.body,
+      this.customAction,
+      this.isHome});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar:
-          CustomAppBar(title: title, customAction: customAction, isHome: false),
+      resizeToAvoidBottomInset: false,
+      appBar: CustomAppBar(
+          title: title, customAction: customAction, isHome: isHome),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 10),
         child: body,

@@ -4,7 +4,7 @@ import 'package:github_finder/models/repository.dart';
 import 'package:github_finder/models/user_details.dart';
 import 'package:github_finder/providers/user_provider.dart';
 import 'package:github_finder/widgets/app_icon.dart';
-import 'package:github_finder/widgets/layouts/page_view.dart';
+import 'package:github_finder/widgets/page_view.dart';
 import 'package:github_finder/widgets/repository_list.dart';
 import 'package:provider/provider.dart';
 

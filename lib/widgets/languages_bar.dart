@@ -5,7 +5,7 @@ import 'package:github_finder/utils/hex_to_color.dart';
 class LanguagesBar extends StatelessWidget {
   final List<Language> languages;
 
-  const LanguagesBar({super.key, required this.languages});
+  const LanguagesBar({Key? key, required this.languages}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,10 +18,17 @@ class LanguagesBar extends StatelessWidget {
         ),
         child: Row(
           children: languages.map((language) {
+            double? percentage = language.percentage;
+            String? color = language.color;
+
+            int flexValue = percentage != null ? (percentage * 10).toInt() : 0;
+            Color displayColor =
+                color != null ? hexToColor(color) : Colors.grey;
+
             return Expanded(
-              flex: (language.percentage * 10).toInt(),
+              flex: flexValue,
               child: Container(
-                decoration: BoxDecoration(color: hexToColor(language.color!)),
+                decoration: BoxDecoration(color: displayColor),
               ),
             );
           }).toList(),

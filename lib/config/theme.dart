@@ -105,6 +105,9 @@ class AppTheme {
           secondary: secondaryColor,
           surface: Color(0xFF282828),
           background: Color(0xFF3F3F3F)),
+      cardTheme: const CardTheme(
+        color: Color(0xFF282828),
+      ),
       iconTheme: const IconThemeData(
         color: Color(0xDDFFFFFF),
       ),
@@ -117,6 +120,37 @@ class AppTheme {
         ),
         titleMedium: TextStyle(
           color: Color(0xDDFFFFFF),
+        ),
+      ),
+      navigationBarTheme: const NavigationBarThemeData(
+        backgroundColor: Color(0xFF282828),
+      ),
+      bottomAppBarTheme: const BottomAppBarTheme(
+        color: Color(0xFF282828),
+      ),
+      bottomNavigationBarTheme: const BottomNavigationBarThemeData(
+        backgroundColor: Color(0xFF282828),
+      ),
+      inputDecorationTheme: InputDecorationTheme(
+        filled: true,
+        fillColor: const Color(0xFF282828),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: Color(0xFFDCDCDC),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: Color(0xFFDCDCDC),
+          ),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: const BorderSide(
+            color: Color(0xFFDCDCDC),
+          ),
         ),
       ),
       tabBarTheme: const TabBarTheme(

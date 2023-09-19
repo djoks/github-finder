@@ -1,8 +1,8 @@
 import 'package:github_finder/models/user.dart';
 
 class Repository {
-  final int id;
-  final String name;
+  final int? id;
+  final String? name;
   final String? nodeId;
   final String? fullName;
   final bool? private;
@@ -83,8 +83,8 @@ class Repository {
   final double? score;
 
   Repository({
-    required this.id,
-    required this.name,
+    this.id,
+    this.name,
     this.nodeId,
     this.fullName,
     this.private,
