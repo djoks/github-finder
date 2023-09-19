@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/pages/home_page.dart';
-import 'package:github_finder/pages/settings_page.dart';
-import 'package:github_finder/widgets/app_icon.dart';
-import 'package:github_finder/widgets/custom_app_bar.dart';
+import 'package:github_finder/utils/is_dark_mode.dart';
 import 'package:github_finder/widgets/tab_icons.dart';
 import 'package:github_finder/widgets/tabs/home_tab.dart';
 import 'package:github_finder/widgets/tabs/settings_tab.dart';
-import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
+import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class AppPage extends StatefulWidget {
   const AppPage({super.key});
@@ -27,9 +24,10 @@ class AppPageState extends State<AppPage> {
       screens: buildTabs(),
       items: buildNavBarItems(context),
       confineInSafeArea: true,
-      backgroundColor: Colors.white,
+      backgroundColor:
+          isDarkMode(context) ? const Color(0xFF282828) : Colors.white,
       handleAndroidBackButtonPress: true,
-      resizeToAvoidBottomInset: true,
+      resizeToAvoidBottomInset: false,
       stateManagement: true,
       hideNavigationBarWhenKeyboardShows: true,
       decoration: NavBarDecoration(
@@ -70,19 +68,19 @@ class AppPageState extends State<AppPage> {
       PersistentBottomNavBarItem(
         icon: const Icon(TabIcons.home),
         title: ("Home"),
-        activeColorPrimary: activeColor,
+        activeColorPrimary: isDarkMode(context) ? Colors.white : activeColor,
         inactiveColorPrimary: inActiveColor,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(TabIcons.analytics),
         title: ("Analytics"),
-        activeColorPrimary: activeColor,
+        activeColorPrimary: isDarkMode(context) ? Colors.white : activeColor,
         inactiveColorPrimary: inActiveColor,
       ),
       PersistentBottomNavBarItem(
         icon: const Icon(TabIcons.settings),
         title: ("Settings"),
-        activeColorPrimary: activeColor,
+        activeColorPrimary: isDarkMode(context) ? Colors.white : activeColor,
         inactiveColorPrimary: inActiveColor,
       ),
     ];

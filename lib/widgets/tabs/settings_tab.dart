@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:github_finder/providers/theme_provider.dart';
-import 'package:github_finder/widgets/layouts/bottom_tab_view.dart';
-import 'package:github_finder/widgets/layouts/page_view.dart';
+import 'package:github_finder/widgets/page_view.dart';
 import 'package:provider/provider.dart';
 
 class SettingsTab extends StatefulWidget {
@@ -24,13 +23,26 @@ class SettingsTabState extends State<SettingsTab> {
   Widget build(BuildContext context) {
     return AppPageView(
       title: 'Settings',
+      isHome: true,
       body: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
             margin: const EdgeInsets.all(8.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: 20.0, vertical: 20),
+                  child: Text(
+                    'Display Mode',
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
+                ),
                 RadioListTile(
                   title: const Text('Light Mode'),
                   value: ThemeMode.light,
