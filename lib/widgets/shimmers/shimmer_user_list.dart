@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:ghfinder/widgets/shimmers/shimmer_block.dart';
-import 'package:ghfinder/widgets/shimmers/shimmer_repository_list_item.dart';
+import 'package:ghfinder/widgets/shimmers/shimmer_user_list_item.dart';
 
-class ShimmerRepositoryList extends StatelessWidget {
-  const ShimmerRepositoryList({super.key});
+class ShimmerUserList extends StatelessWidget {
+  const ShimmerUserList({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class ShimmerRepositoryList extends StatelessWidget {
         Expanded(
           child: ListView.builder(
             itemCount: 5,
-            itemBuilder: (context, index) => const ShimmerRepositoryListItem(),
+            itemBuilder: (context, index) => const ShimmerUserListItem(),
           ),
         ),
       ],

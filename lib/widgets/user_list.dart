@@ -15,43 +15,41 @@ class UserList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-              margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
-              child: RichText(
-                text: TextSpan(
-                  style: DefaultTextStyle.of(context).style,
-                  children: [
-                    const TextSpan(text: 'Showing '),
-                    TextSpan(
-                      text: '$recordCount results ',
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                    const TextSpan(text: 'of '),
-                    TextSpan(
-                      text: query,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
-                    ),
-                  ],
-                ),
-              )),
-          if (users != null && users!.isNotEmpty)
-            Expanded(
-              child: ListView.builder(
-                shrinkWrap: true,
-                itemCount: users?.length,
-                itemBuilder: (context, index) {
-                  return UserListItem(user: users![index]);
-                },
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Container(
+            margin: const EdgeInsets.symmetric(vertical: 15, horizontal: 5),
+            child: RichText(
+              text: TextSpan(
+                style: DefaultTextStyle.of(context).style,
+                children: [
+                  const TextSpan(text: 'Showing '),
+                  TextSpan(
+                    text: '$recordCount results ',
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const TextSpan(text: 'of '),
+                  TextSpan(
+                    text: query,
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ],
               ),
-            )
-          else
-            const Text('No users to display.'),
-        ],
-      ),
+            )),
+        if (users != null && users!.isNotEmpty)
+          Expanded(
+            child: ListView.builder(
+              shrinkWrap: true,
+              itemCount: users?.length,
+              itemBuilder: (context, index) {
+                return UserListItem(user: users![index]);
+              },
+            ),
+          )
+        else
+          const Text('No users to display.'),
+      ],
     );
   }
 }

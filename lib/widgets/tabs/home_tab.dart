@@ -4,6 +4,8 @@ import 'package:ghfinder/utils/is_dark_mode.dart';
 import 'package:ghfinder/widgets/app_icon.dart';
 import 'package:ghfinder/widgets/page_view.dart';
 import 'package:ghfinder/widgets/repository_list.dart';
+import 'package:ghfinder/widgets/shimmers/shimmer_repository_list.dart';
+import 'package:ghfinder/widgets/shimmers/shimmer_user_list.dart';
 import 'package:ghfinder/widgets/user_list.dart';
 import 'package:provider/provider.dart';
 
@@ -96,6 +98,7 @@ class HomeTabState extends State<HomeTab> {
   }
 
   Widget _buildEmptySearchView() {
+    // return const ShimmerUserList();
     return Column(
       children: [
         const SizedBox(height: 25),
@@ -140,22 +143,27 @@ class HomeTabState extends State<HomeTab> {
     return Expanded(
       child: TabBarView(
         children: [
-          if (homeProvider.users!.isEmpty)
+          if (homeProvider.users == null || homeProvider.users!.isEmpty)
             _buildNoResultsView()
           else
-            UserList(
-              query: homeProvider.currentQuery,
-              recordCount: homeProvider.users?.length ?? 0,
-              users: homeProvider.users,
-            ),
-          if (homeProvider.repositories!.isEmpty)
+            homeProvider.isLoadingUsers
+                ? const ShimmerUserList()
+                : UserList(
+                    query: homeProvider.currentQuery,
+                    recordCount: homeProvider.users?.length ?? 0,
+                    users: homeProvider.users,
+                  ),
+          if (homeProvider.repositories == null ||
+              homeProvider.repositories!.isEmpty)
             _buildNoResultsView()
           else
-            RepositoryList(
-              query: homeProvider.currentQuery,
-              recordCount: homeProvider.repositories?.length ?? 0,
-              repositories: homeProvider.repositories,
-            ),
+            homeProvider.isLoadingRepositories
+                ? const ShimmerRepositoryList()
+                : RepositoryList(
+                    query: homeProvider.currentQuery,
+                    recordCount: homeProvider.repositories?.length ?? 0,
+                    repositories: homeProvider.repositories,
+                  ),
         ],
       ),
     );

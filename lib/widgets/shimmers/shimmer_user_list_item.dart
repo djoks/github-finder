@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:ghfinder/widgets/shimmers/shimmer_badge_list.dart';
 import 'package:ghfinder/widgets/shimmers/shimmer_block.dart';
-import 'package:ghfinder/widgets/shimmers/shimmer_star.dart';
+import 'package:ghfinder/widgets/shimmers/shimmer_circle.dart';
 
-class ShimmerRepositoryListItem extends StatelessWidget {
-  const ShimmerRepositoryListItem({super.key});
+class ShimmerUserListItem extends StatelessWidget {
+  const ShimmerUserListItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,11 +32,18 @@ class ShimmerRepositoryListItem extends StatelessWidget {
   }
 
   Widget _buildRepositoryHeader() {
+    // make a full circle container
+
     return const Row(
       children: [
+        ShimmerCircle(
+          width: 25,
+          height: 25,
+        ),
+        SizedBox(width: 10),
         ShimmerBlock(width: 100, height: 14),
         Spacer(),
-        ShimmerStar(size: 14),
+        ShimmerBlock(width: 25, height: 14),
         SizedBox(width: 5),
         ShimmerBlock(width: 50, height: 14),
       ],

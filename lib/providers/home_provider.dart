@@ -20,7 +20,8 @@ class HomeProvider with ChangeNotifier {
   List<User>? users;
   List<Repository>? repositories;
   bool isSearching = false;
-  bool isLoading = false;
+  bool isLoadingUsers = false;
+  bool isLoadingRepositories = false;
 
   final StreamController<String> _streamController = StreamController<String>();
   final TextEditingController searchController = TextEditingController();
@@ -49,14 +50,14 @@ class HomeProvider with ChangeNotifier {
   Future<void> fetchUsers(String query) async {
     try {
       currentQuery = query;
-      isLoading = true;
+      isLoadingUsers = true;
       notifyListeners();
 
       users = await userService.getUsers(query);
     } catch (e) {
       logger.e("Error fetching users", error: e);
     } finally {
-      isLoading = false;
+      isLoadingUsers = false;
       notifyListeners();
     }
   }
@@ -64,14 +65,14 @@ class HomeProvider with ChangeNotifier {
   Future<void> fetchRepositories(String query) async {
     try {
       currentQuery = query;
-      isLoading = true;
+      isLoadingRepositories = true;
       notifyListeners();
 
       repositories = await repositoryService.getRepositories(query);
     } catch (e) {
       logger.e("Error fetching repositories", error: e);
     } finally {
-      isLoading = false;
+      isLoadingRepositories = false;
       notifyListeners();
     }
   }

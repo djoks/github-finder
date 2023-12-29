@@ -9,6 +9,7 @@ import 'package:ghfinder/providers/home_provider.dart';
 import 'package:ghfinder/providers/repository_provider.dart';
 import 'package:ghfinder/widgets/ellipsis.dart';
 import 'package:ghfinder/widgets/language_list.dart';
+import 'package:ghfinder/widgets/shimmers/shimmer_badge_list.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
 
@@ -111,8 +112,14 @@ class UserListItemState extends State<UserListItem> {
     return FutureBuilder<Repository?>(
       future: homeProvider.fetchUserRecentRepository(displayLogin),
       builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const ShimmerBadgeList();
+        }
         if (snapshot.hasError) return const Text('');
-        if (!snapshot.hasData) return const Text('No languages available');
+        if (!snapshot.hasData &&
+            snapshot.connectionState == ConnectionState.done) {
+          return const Text('No languages available');
+        }
         return _buildLanguagesList(snapshot.data!);
       },
     );
@@ -130,8 +137,12 @@ class UserListItemState extends State<UserListItem> {
         defaultColor: '#2EA4CA',
       ),
       builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const ShimmerBadgeList();
+        }
         if (snapshot.hasError) return const Text('');
         if (!snapshot.hasData) return const Text('No languages available');
+
         return LanguageList(languages: snapshot.data!);
       },
     );
