@@ -1,6 +1,6 @@
 {
-	"name": "github_finder",
-	"short_name": "github_finder",
+	"name": "ghfinder",
+	"short_name": "ghfinder",
 	"start_url": ".",
 	"display": "standalone",
 	"background_color": "#0175C2",

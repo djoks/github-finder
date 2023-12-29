@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/widgets/app_icon.dart';
+import 'package:ghfinder/widgets/app_icon.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String? title;

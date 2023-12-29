@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:github_finder/utils/hex_to_color.dart';
+import 'package:ghfinder/utils/hex_to_color.dart';
 
 void main() {
   test('hexToColor should correctly convert a 7-character hex string', () {

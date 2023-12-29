@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/language.dart';
-import 'package:github_finder/models/release.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/services/http_service.dart';
-import 'package:github_finder/services/repository_service.dart';
+import 'package:ghfinder/models/language.dart';
+import 'package:ghfinder/models/release.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/services/http_service.dart';
+import 'package:ghfinder/services/repository_service.dart';
 
 class RepositoryProvider with ChangeNotifier {
   final HttpService httpService;

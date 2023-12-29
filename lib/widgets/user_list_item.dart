@@ -1,14 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/language.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/models/user.dart';
-import 'package:github_finder/models/user_details.dart';
-import 'package:github_finder/pages/user_page.dart';
-import 'package:github_finder/providers/home_provider.dart';
-import 'package:github_finder/providers/repository_provider.dart';
-import 'package:github_finder/widgets/ellipsis.dart';
-import 'package:github_finder/widgets/language_list.dart';
+import 'package:ghfinder/models/language.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/models/user.dart';
+import 'package:ghfinder/models/user_details.dart';
+import 'package:ghfinder/pages/user_page.dart';
+import 'package:ghfinder/providers/home_provider.dart';
+import 'package:ghfinder/providers/repository_provider.dart';
+import 'package:ghfinder/widgets/ellipsis.dart';
+import 'package:ghfinder/widgets/language_list.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
 

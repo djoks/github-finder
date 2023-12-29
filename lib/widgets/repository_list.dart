@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/widgets/repository_list_item.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/widgets/repository_list_item.dart';
 
 class RepositoryList extends StatelessWidget {
   final String query;

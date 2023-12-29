@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/utils/is_dark_mode.dart';
-import 'package:github_finder/widgets/tab_icons.dart';
-import 'package:github_finder/widgets/tabs/home_tab.dart';
-import 'package:github_finder/widgets/tabs/settings_tab.dart';
+import 'package:ghfinder/utils/is_dark_mode.dart';
+import 'package:ghfinder/widgets/tab_icons.dart';
+import 'package:ghfinder/widgets/tabs/home_tab.dart';
+import 'package:ghfinder/widgets/tabs/settings_tab.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 
 class AppPage extends StatefulWidget {

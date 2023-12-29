@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/language.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/pages/repository_page.dart';
-import 'package:github_finder/providers/user_provider.dart';
-import 'package:github_finder/utils/format_date.dart';
-import 'package:github_finder/widgets/app_icon.dart';
-import 'package:github_finder/widgets/ellipsis.dart';
-import 'package:github_finder/widgets/language_list.dart';
+import 'package:ghfinder/models/language.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/pages/repository_page.dart';
+import 'package:ghfinder/providers/user_provider.dart';
+import 'package:ghfinder/utils/format_date.dart';
+import 'package:ghfinder/widgets/app_icon.dart';
+import 'package:ghfinder/widgets/ellipsis.dart';
+import 'package:ghfinder/widgets/language_list.dart';
 import 'package:persistent_bottom_nav_bar_v2/persistent-tab-view.dart';
 import 'package:provider/provider.dart';
 

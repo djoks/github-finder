@@ -1,6 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:github_finder/utils/get_language_color.dart';
+import 'package:ghfinder/utils/get_language_color.dart';
 
 void main() {
   TestWidgetsFlutterBinding.ensureInitialized();

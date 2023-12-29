@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/providers/theme_provider.dart';
-import 'package:github_finder/widgets/page_view.dart';
+import 'package:ghfinder/providers/theme_provider.dart';
+import 'package:ghfinder/widgets/page_view.dart';
 import 'package:provider/provider.dart';
 
 class SettingsTab extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:github_finder/models/user.dart';
+import 'package:ghfinder/models/user.dart';
 
 class Repository {
   final int? id;

@@ -15,7 +15,7 @@ A Flutter project that allows you to search and explore GitHub repositories.
 Clone this repository to your local machine.
 
 ```bash
-git clone https://github.com/your_username/github_finder.git
+git clone https://github.com/your_username/ghfinder.git
 ```
 
 ### Step 2: Install Dependencies
@@ -23,7 +23,7 @@ git clone https://github.com/your_username/github_finder.git
 Navigate to your project folder and install all dependencies:
 
 ```bash
-cd github_finder
+cd ghfinder
 flutter pub get
 ```
 

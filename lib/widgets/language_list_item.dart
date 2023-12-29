@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/language.dart';
-import 'package:github_finder/utils/hex_to_color.dart';
+import 'package:ghfinder/models/language.dart';
+import 'package:ghfinder/utils/hex_to_color.dart';
 
 class LanguageListItem extends StatelessWidget {
   final Language language;

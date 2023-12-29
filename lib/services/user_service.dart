@@ -1,7 +1,7 @@
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/models/user.dart';
-import 'package:github_finder/models/user_details.dart';
-import 'package:github_finder/services/http_service.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/models/user.dart';
+import 'package:ghfinder/models/user_details.dart';
+import 'package:ghfinder/services/http_service.dart';
 
 class UserService {
   final HttpService httpService;

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/user.dart';
-import 'package:github_finder/widgets/user_list_item.dart';
+import 'package:ghfinder/models/user.dart';
+import 'package:ghfinder/widgets/user_list_item.dart';
 
 class UserList extends StatelessWidget {
   final String query;

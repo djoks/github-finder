@@ -1,5 +1,5 @@
-import 'package:github_finder/models/language.dart';
-import 'package:github_finder/utils/get_language_color.dart';
+import 'package:ghfinder/models/language.dart';
+import 'package:ghfinder/utils/get_language_color.dart';
 
 Future<List<Language>> parseLanguages(Map<String, int> data,
     {String? defaultColor}) async {

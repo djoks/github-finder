@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/language.dart';
-import 'package:github_finder/models/release.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/providers/repository_provider.dart';
-import 'package:github_finder/widgets/badge.dart';
-import 'package:github_finder/widgets/language_list.dart';
-import 'package:github_finder/widgets/languages_bar.dart';
-import 'package:github_finder/widgets/page_view.dart';
-import 'package:github_finder/widgets/release_list.dart';
-import 'package:github_finder/widgets/star_count.dart';
+import 'package:ghfinder/models/language.dart';
+import 'package:ghfinder/models/release.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/providers/repository_provider.dart';
+import 'package:ghfinder/widgets/badge.dart';
+import 'package:ghfinder/widgets/language_list.dart';
+import 'package:ghfinder/widgets/languages_bar.dart';
+import 'package:ghfinder/widgets/page_view.dart';
+import 'package:ghfinder/widgets/release_list.dart';
+import 'package:ghfinder/widgets/star_count.dart';
 import 'package:provider/provider.dart';
 
 class RepositoryPage extends StatefulWidget {

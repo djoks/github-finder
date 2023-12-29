@@ -1,12 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:github_finder/models/user_details.dart';
-import 'package:github_finder/pages/user_page.dart';
-import 'package:github_finder/providers/theme_provider.dart';
-import 'package:github_finder/services/http_service.dart';
+import 'package:ghfinder/models/user_details.dart';
+import 'package:ghfinder/pages/user_page.dart';
+import 'package:ghfinder/providers/theme_provider.dart';
+import 'package:ghfinder/services/http_service.dart';
 import 'package:provider/provider.dart';
-import 'package:github_finder/providers/user_provider.dart';
+import 'package:ghfinder/providers/user_provider.dart';
 import 'package:mockito/mockito.dart';
 
 class MockHttpService extends Mock implements HttpService {}

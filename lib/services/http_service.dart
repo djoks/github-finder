@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
-import 'package:github_finder/config/app.dart';
+import 'package:ghfinder/config/app.dart';
 
 class HttpService {
   Duration connectTimeout = const Duration(seconds: 50);

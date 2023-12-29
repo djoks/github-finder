@@ -11,20 +11,20 @@
             "program": "lib/main.dart"
         },
         {
-            "name": "github_finder",
+            "name": "ghfinder",
             "request": "launch",
             "type": "dart",
             "toolArgs": ["--dart-define-from-file", ".env"]
         },
         {
-            "name": "github_finder (profile mode)",
+            "name": "ghfinder (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
             "toolArgs": ["--dart-define-from-file", ".env"]
         },
         {
-            "name": "github_finder (release mode)",
+            "name": "ghfinder (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",

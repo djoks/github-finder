@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/models/user_details.dart';
-import 'package:github_finder/providers/user_provider.dart';
-import 'package:github_finder/widgets/app_icon.dart';
-import 'package:github_finder/widgets/page_view.dart';
-import 'package:github_finder/widgets/repository_list.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/models/user_details.dart';
+import 'package:ghfinder/providers/user_provider.dart';
+import 'package:ghfinder/widgets/app_icon.dart';
+import 'package:ghfinder/widgets/page_view.dart';
+import 'package:ghfinder/widgets/repository_list.dart';
 import 'package:provider/provider.dart';
 
 class UserPage extends StatefulWidget {

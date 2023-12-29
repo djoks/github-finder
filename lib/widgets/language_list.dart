@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/language.dart';
-import 'package:github_finder/widgets/language_list_item.dart';
+import 'package:ghfinder/models/language.dart';
+import 'package:ghfinder/widgets/language_list_item.dart';
 
 class LanguageList extends StatelessWidget {
   final List<Language> languages;

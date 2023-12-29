@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/pages/repository_page.dart';
-import 'package:github_finder/providers/repository_provider.dart';
-import 'package:github_finder/providers/theme_provider.dart';
-import 'package:github_finder/services/http_service.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/pages/repository_page.dart';
+import 'package:ghfinder/providers/repository_provider.dart';
+import 'package:ghfinder/providers/theme_provider.dart';
+import 'package:ghfinder/services/http_service.dart';
 import 'package:mockito/mockito.dart';
 import 'package:provider/provider.dart';
 

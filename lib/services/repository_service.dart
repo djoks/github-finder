@@ -1,8 +1,8 @@
-import 'package:github_finder/models/language.dart';
-import 'package:github_finder/models/release.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/services/http_service.dart';
-import 'package:github_finder/utils/parse_languages.dart';
+import 'package:ghfinder/models/language.dart';
+import 'package:ghfinder/models/release.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/services/http_service.dart';
+import 'package:ghfinder/utils/parse_languages.dart';
 import 'package:logger/logger.dart';
 
 class RepositoryService {

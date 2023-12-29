@@ -1,4 +1,18 @@
 {
+    "dart.flutterSdkPath": ".fvm/flutter_sdk",
+    "dart.flutterSdkPaths": ["/Users/usr/fvm/versions"],
+    // Remove .fvm files from search
+    "search.exclude": {
+    "**/.fvm": true
+    },
+    // Remove from file watching
+    "files.watcherExclude": {
+    "**/.fvm": true
+    },
+    "[dart]": {
+        "editor.defaultFormatter": "Dart-Code.dart-code",
+        "editor.formatOnSave": true
+    },
     "cSpell.words": [
         "ABAP",
         "Altium",

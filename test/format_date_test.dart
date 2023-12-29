@@ -1,5 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:github_finder/utils/format_date.dart';
+import 'package:ghfinder/utils/format_date.dart';
 
 void main() {
   test('formatDate should correctly format date in YYYY-MM-DD format', () {

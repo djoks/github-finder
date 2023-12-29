@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/widgets/custom_app_bar.dart';
+import 'package:ghfinder/widgets/custom_app_bar.dart';
 
 class AppPageView extends StatelessWidget {
   final String? title;

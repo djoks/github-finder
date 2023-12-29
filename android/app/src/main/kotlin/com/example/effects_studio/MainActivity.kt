@@ -1,4 +1,4 @@
-package com.example.github_finder
+package com.example.ghfinder
 
 import io.flutter.embedding.android.FlutterActivity
 

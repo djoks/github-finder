@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/providers/home_provider.dart';
-import 'package:github_finder/utils/is_dark_mode.dart';
-import 'package:github_finder/widgets/app_icon.dart';
-import 'package:github_finder/widgets/page_view.dart';
-import 'package:github_finder/widgets/repository_list.dart';
-import 'package:github_finder/widgets/user_list.dart';
+import 'package:ghfinder/providers/home_provider.dart';
+import 'package:ghfinder/utils/is_dark_mode.dart';
+import 'package:ghfinder/widgets/app_icon.dart';
+import 'package:ghfinder/widgets/page_view.dart';
+import 'package:ghfinder/widgets/repository_list.dart';
+import 'package:ghfinder/widgets/user_list.dart';
 import 'package:provider/provider.dart';
 
 class HomeTab extends StatefulWidget {

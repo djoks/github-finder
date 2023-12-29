@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/release.dart';
-import 'package:github_finder/widgets/release_list_item.dart';
+import 'package:ghfinder/models/release.dart';
+import 'package:ghfinder/widgets/release_list_item.dart';
 
 class ReleaseList extends StatelessWidget {
   final List<Release>? releases;

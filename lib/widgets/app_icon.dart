@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:github_finder/providers/theme_provider.dart';
+import 'package:ghfinder/providers/theme_provider.dart';
 
 class AppIcon extends StatelessWidget {
   final String assetPath;

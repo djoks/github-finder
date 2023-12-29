@@ -1,12 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:github_finder/models/repository.dart';
-import 'package:github_finder/models/user.dart';
-import 'package:github_finder/models/user_details.dart';
-import 'package:github_finder/services/http_service.dart';
-import 'package:github_finder/services/repository_service.dart';
-import 'package:github_finder/services/user_service.dart';
+import 'package:ghfinder/models/repository.dart';
+import 'package:ghfinder/models/user.dart';
+import 'package:ghfinder/models/user_details.dart';
+import 'package:ghfinder/services/http_service.dart';
+import 'package:ghfinder/services/repository_service.dart';
+import 'package:ghfinder/services/user_service.dart';
 import 'package:logger/logger.dart';
 import 'package:rxdart/rxdart.dart';
 
