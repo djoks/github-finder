@@ -8,27 +8,25 @@
             "name": "Flutter",
             "type": "dart",
             "request": "launch",
-            "program": "lib/main.dart"
+            "program": "lib/main.dart",
+            "toolArgs": ["--dart-define-from-file", ".env"]
         },
         {
             "name": "ghfinder",
             "request": "launch",
-            "type": "dart",
-            "toolArgs": ["--dart-define-from-file", ".env"]
+            "type": "dart"
         },
         {
             "name": "ghfinder (profile mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "profile",
-            "toolArgs": ["--dart-define-from-file", ".env"]
+            "flutterMode": "profile"
         },
         {
             "name": "ghfinder (release mode)",
             "request": "launch",
             "type": "dart",
-            "flutterMode": "release",
-            "toolArgs": ["--dart-define-from-file", ".env"]
+            "flutterMode": "release"
         }
     ]
 }
